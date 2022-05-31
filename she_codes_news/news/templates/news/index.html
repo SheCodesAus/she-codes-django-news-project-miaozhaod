@@ -23,4 +23,15 @@
   <p>No stories are available.</p>
   {% endif %}
 </div>
+
+<div id="stories-by-date">
+  <h2>Stories by date</h2>
+  {% if stories_by_date %} 
+  {% for story in all_stories %}
+  {% include "./storyCard.html" with story=story %} 
+  {% endfor %} 
+  {% else %}
+  <p>No stories are available.</p>
+  {% endif %}
+</div>
 {% endblock %}

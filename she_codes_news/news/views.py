@@ -14,6 +14,7 @@ class IndexView(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['latest_stories'] = NewsStory.objects.all()[:4]
         context['all_stories'] = NewsStory.objects.all()
+        context['stories_by_date'] = NewsStory.objects.order_by('pub_date')
         return context
 
 class StoryView(generic.DetailView):
