@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% load static %} 
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}" />
+{% endblock%} 
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<h2>Your Profile</h2>
+
+<div class="user-detail-item">
+  <h4>Username:</h4>
+  <p>{{ user.username}}</p>
+</div>
+<div class="user-detail-item">
+  <h4>Email:</h4>
+  <p>{{ user.email}}</p>
+</div>
+<div class="user-detail-item">
+  <h4>Last login:</h4>
+  <p>{{ user.last_login }}</p>
+</div>
+<div class="user-detail-item">
+  <h4>Date joined:</h4>
+  <p>{{ user.date_joined }}</p>
+</div>
+{% else %}
+
+<a href="{% url 'login' %}"><h2>Login to view your profile</h2></a>
+{% endif %} {% endblock %}
