@@ -84,3 +84,23 @@
   margin: 0 0 10px 10px;
   width: 50%;
 }
+
+#stories-by-date {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#stories-by-date .story-card {
+  flex-basis: 32%;
+  flex-grow: 1;
+}
+
+.new-story-form {
+  width: 100%;
+}
+
+.new-story-form > p {
+  display: flex;
+  flex-direction: column;
+}

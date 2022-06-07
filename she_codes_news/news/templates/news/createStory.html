@@ -1,6 +1,8 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% load static %} {% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}" />
+{% endblock%} {% block content %}
 
-<form action="" method="post">
+<form action="" method="post" class="new-story-form">
   <!-- this token is to protect  -->
   {% csrf_token %}
   <!-- this is to insert a variable -->
