@@ -14,6 +14,7 @@
   {% endif %}
 </div>
 
+<h2>All News</h2>
 <div id="all-stories">
   {% if latest_stories %} 
   {% for story in all_stories %}
@@ -24,8 +25,8 @@
   {% endif %}
 </div>
 
+<h2>Stories by date</h2>
 <div id="stories-by-date">
-  <h2>Stories by date</h2>
   {% if stories_by_date %} 
   {% for story in all_stories %}
   {% include "./storyCard.html" with story=story %} 
