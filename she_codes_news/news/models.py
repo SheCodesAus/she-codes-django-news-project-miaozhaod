@@ -9,4 +9,4 @@ class NewsStory(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     pub_date = models.DateTimeField()
     content = models.TextField()
-    img = models.CharField(max_length=500, default="https://picsum.photos/600")
+    image_url = models.CharField(max_length=500, default="https://picsum.photos/600")
