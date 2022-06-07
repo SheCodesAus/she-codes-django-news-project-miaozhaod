@@ -12,3 +12,8 @@ class CreateAccountView(CreateView):
     # reverse_lazy lookup the url path from the saved name
     success_url = reverse_lazy("login")
     template_name = "users/createAccount.html"
+
+
+class ViewAccountView(generic.DetailView):
+    model = CustomUser
+    template_name = "users/viewAccount.html"
