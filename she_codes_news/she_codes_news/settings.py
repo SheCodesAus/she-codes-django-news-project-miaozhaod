@@ -28,11 +28,13 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "(jkv!qs0&8mc=ftuod-kzmdni25#vl
 DEBUG = os.environ.get("DJANGO_DEBUG") != "False"
 
 ALLOWED_HOSTS = ["*"]
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
 INSTALLED_APPS = [
     "news.apps.NewsConfig",
+    'corsheaders',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -48,6 +50,7 @@ LOGIN_REDIRECT_URL = "news:index"
 LOGOUT_REDIRECT_URL = "news:index"
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
