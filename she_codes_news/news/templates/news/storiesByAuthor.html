@@ -3,6 +3,7 @@
 
 <h2>Stories by Author!</h2>
 <div id="stories-by-author">
+  <a href="{% url 'users:allUsers' %}">Go back to view all the authors</a>
   {% if stories_by_author %}
   {% for story in stories_by_author %} 
   {% include "./storyCard.html" with story=story %} 
