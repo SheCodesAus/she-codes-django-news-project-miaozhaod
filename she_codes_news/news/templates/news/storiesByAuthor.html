@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Stories by Author!</h2>
+<div id="stories-by-author">
+  {% if stories_by_author %}
+  {% for story in stories_by_author %} 
+  {% include "./storyCard.html" with story=story %} 
+  {% endfor %} 
+  {% else %}
+  <p>This user is lazy, and has not published any stories</p>
+  {% endif %}
+</div>
+{% endblock%} 
