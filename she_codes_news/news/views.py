@@ -37,3 +37,19 @@ class AddStoryView(generic.CreateView):
         form.instance.author = self.request.user
         # call the form_valid on generic.CreateVie
         return super().form_valid(form)
+
+
+class storiesByAuthorView(generic.ListView):
+    template_name = "news/storiesByAuthor.html"
+
+    def get_queryset(self):
+        """Return all news stories."""
+        return NewsStory.objects.all()
+
+    def get_context_data(self, **kwargs):
+        # author = self.request.GET.get("author")
+        author = self.kwargs["author"] # this author refers to the P<author> defined in the url
+        print("author", author)
+        context = super().get_context_data(**kwargs)
+        context["stories_by_author"] = NewsStory.objects.all().filter(author=author)
+        return context
