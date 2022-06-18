@@ -1,7 +1,14 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<h4>You have already logged in, log out to create another account</h4>
+<a href="{% url 'logout' %}">Logout</a>
+{% else %}
 <h2>Create Account</h2>
 <form method="post">
   {% csrf_token %} {{ form.as_p }}
   <button type="submit">Create Account</button>
 </form>
+{% endif %}
 {% endblock %}
