@@ -17,3 +17,16 @@ class CreateAccountView(CreateView):
 class ViewAccountView(generic.DetailView):
     model = CustomUser
     template_name = "users/viewAccount.html"
+
+
+class AllUsersView(generic.ListView):
+    template_name = "users/allUsers.html"
+
+    def get_queryset(self):
+        return CustomUser.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["all_users"] = CustomUser.objects.all()
+
+        return context
