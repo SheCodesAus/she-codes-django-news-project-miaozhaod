@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>All Authors</h2>
+
+<div>
+  {% if all_users %} 
+  {% for user in all_users %} 
+  {% include "./userCard.html" with user=user position=forloop.counter %} 
+  {% endfor %}
+  {% else %}
+  <p>No users yet, register now to become our first user!</p>
+  <a href="{% url 'users:createAccount' %}">Sign up</a>
+  {% endif %}
+</div>
+{% endblock %}
