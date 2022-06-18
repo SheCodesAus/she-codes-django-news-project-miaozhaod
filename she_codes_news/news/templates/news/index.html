@@ -10,7 +10,6 @@
   ><button>Write a new story</button></a
 >
 {% endif %}
-<a href="{% url 'users:allUsers' %}">View all the authors</a>
 <h2>Latest News</h2>
 
 <div id="latest-stories">
@@ -27,17 +26,6 @@
 <div id="all-stories">
   {% if latest_stories %} 
   {% for story in all_stories %} 
-  {% include "./storyCard.html" with story=story %} 
-  {% endfor %} 
-  {% else %}
-  <p>No stories are available.</p>
-  {% endif %}
-</div>
-
-<h2>Stories by date</h2>
-<div id="stories-by-date">
-  {% if latest_stories %} 
-  {% for story in stories_by_date %} 
   {% include "./storyCard.html" with story=story %} 
   {% endfor %} 
   {% else %}

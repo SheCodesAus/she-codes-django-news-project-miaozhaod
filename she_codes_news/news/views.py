@@ -38,6 +38,17 @@ class AddStoryView(generic.CreateView):
         # call the form_valid on generic.CreateVie
         return super().form_valid(form)
 
+class storiesByDateView(generic.ListView):
+    template_name = "news/storiesByDate.html"
+
+    def get_queryset(self):
+        """Return all news stories."""
+        return NewsStory.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["stories_by_date"] = NewsStory.objects.all().order_by("-pub_date")
+        return context
 
 class storiesByAuthorView(generic.ListView):
     template_name = "news/storiesByAuthor.html"
